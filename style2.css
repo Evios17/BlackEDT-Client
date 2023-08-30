@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+    scroll-behavior: smooth !important;
+    transition: 300ms;
+}
+
+.application{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+    color: #000000;
+}
+
+.calandar{
+    flex: 1;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.cal-tab{
+    flex: 1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.cal-col{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid;
+}
+
+.cal-cell{
+    flex: 1;
+
+    padding: 20px;
+    border: 1px solid #606060;
+}
+
+
+
+
+.footer{
+    padding: 20px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #000;
+
+    color: #c0c0c0;
+}
+
+.ftr-flex-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.ftr-flex-element:first-child{
+    align-items: flex-start;
+}
+
+.ftr-flex-element:nth-child(2){
+    align-items: flex-end;
+}
