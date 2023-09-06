@@ -11,6 +11,8 @@
     width: 100vw;
     height: 100vh;
 
+    /* padding: 20px; */
+
     display: flex;
     flex-direction: column;
 
@@ -27,6 +29,27 @@
     justify-content: space-between;
     align-items: stretch;
     gap: 20px;
+
+    position: relative;
+
+    border: 1px solid;
+}
+
+.cal-cursor{
+    height: 2px;
+    width: 100%;
+
+    position: absolute;
+    top: 30%;
+    left: 0;
+
+    background-color: #8773e3;
+}
+
+.cal-time{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cal-tab{
@@ -35,6 +58,8 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+
+    border: 1px solid;
 }
 
 .cal-col{
@@ -44,14 +69,23 @@
     flex-direction: column;
     justify-content: space-between;
 
-    border: 1px solid;
+    border-right: 1px solid;
+}
+
+.cal-col:last-child{
+    border: none;
 }
 
 .cal-cell{
     flex: 1;
 
     padding: 20px;
-    border: 1px solid #606060;
+
+    border-bottom: 1px solid #606060;
+}
+
+.cal-cell:last-child{
+    border: none;
 }
 
 

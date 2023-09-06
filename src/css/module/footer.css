@@ -1,0 +1,27 @@
+.footer{
+    padding: 20px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #000;
+
+    color: #c0c0c0;
+}
+
+.ftr-flex-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.ftr-flex-element:first-child{
+    align-items: flex-start;
+}
+
+.ftr-flex-element:nth-child(2){
+    align-items: flex-end;
+}
