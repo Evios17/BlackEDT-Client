@@ -1,0 +1,192 @@
+@import "../css/root.css";
+
+.application{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.tree{
+    padding: 80px;
+
+    flex: 1;
+}
+
+.logo{
+    height: 80px;
+
+    position: fixed;
+    top: 130px;
+    left: 130px;
+}
+
+.ttr1{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.ttr1::after{
+    content: "";
+
+    width: 60px;
+    height: 5px;
+
+    margin: 6px 0 10px 0;
+
+    display: block;
+
+    background-color: #37b8c1;
+    box-shadow: 3px 3px 10px 0 #37b8c1;
+    border-radius: 5px;
+}
+
+.ogltL1, .ogltL2, .ogltL3, .ogltL4{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    animation: fade 800ms forwards;
+}
+
+@keyframes fade {
+    from{
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.ogltBtnFlx{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.ogltCtrl{
+    aspect-ratio: 1/1;
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    box-shadow: 5px 5px 30px 0 #eee;
+    border-radius: 20px;
+}
+
+.ogltCtrl > div{
+    display: flex;
+    gap: 10px;
+}
+
+.ogltCtrl > div > button{
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fff;
+    border: none;
+
+    font-size: 2em;
+}
+
+.ogltCtrl > div > button:nth-child(1){
+    border-radius: 20px 0 0 20px;
+    color: #37b8c1;
+}
+
+.ogltCtrl > div > button:nth-child(2){
+    font-weight: bold;
+}
+
+.ogltCtrl > div > button:nth-child(3){
+    border-radius: 0 20px 20px 0;
+    color: #37b8c1;
+}
+
+.ogltBtn, .ogltBtnL1, .ogltBtnL2, .ogltBtnL3, .ogltBtnL4{
+    aspect-ratio: 1/1;
+    width: 250px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #fff;
+    box-shadow: 5px 5px 30px 0 #eee;
+    border: none;
+    border-radius: 20px;
+}
+
+.ogltBtn > i, .ogltBtnL1 > i, .ogltBtnL2 > i, .ogltBtnL3 > i, .ogltBtnL4 > i{
+    font-size: 5em;
+    color: #233366;
+}
+
+.ogltBtn > span, .ogltBtnL1 > span, .ogltBtnL2 > span, .ogltBtnL3 > span, .ogltBtnL4 > span{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.ogltL1.active, .ogltL2.active, .ogltL3.active{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    padding: 20px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #000;
+
+    color: #c0c0c0;
+}
+
+.ftr-flex-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.ftr-flex-element:first-child{
+    align-items: flex-start;
+}
+
+.ftr-flex-element:nth-child(2){
+    align-items: flex-end;
+}

@@ -18,7 +18,7 @@ To install the requirements for BlackEDT-Server, follow these steps:
 
 ## Usage
 
-To use BlackEDT-Client, <mettre les instructions>
+To use BlackEDT-Client, "mettre les instructions"
 
 ## License
 

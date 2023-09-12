@@ -1,26 +1,21 @@
-const { app, BrowserWindow } = require('electron')
+const electron = require('electron')
 
-const createWindow = () => {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600
-  })
+const createWindow = (path) => {
+    // const win = new BrowserWindow({
+    //     width: 800,
+    //     height: 600
+    // })
+    const win = new electron.BrowserWindow({
+        fullscreen: true,
+        x: -2560,
+        y: 0
+    })
 
-  win.loadFile('src/js/html/instruction.html')
+    win.loadFile(path)
 }
 
-app.whenReady().then(() => {
-  createWindow()
+electron.app.whenReady().then(() => {
+    createWindow('src/js/html/debug.html');
 
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
-  })
-})
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+    console.log(electron.screen.getAllDisplays());
 })
