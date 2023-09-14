@@ -1,10 +1,9 @@
 import * as socket from "./socket.js";
-import {requestParser} from "./parser.js";
 
 
 // Initation de la fennêtre secondaire
 
-window.initWindow();
+//window.initWindow();
 
 // Initiation du socket
 

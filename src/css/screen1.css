@@ -9,25 +9,27 @@
 }
 
 .tree{
+    flex: 1;
+
     padding: 80px;
 
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
 }
 
-.logo{
-    height: 80px;
-
-    position: fixed;
-    top: 130px;
-    left: 130px;
+.treeTitleCtn{
+    display: flex;
+    justify-content: center;
 }
 
-.ttr1{
+.treeTitle{
     font-weight: bold;
     font-size: 2em;
 }
 
-.ttr1::after{
+.treeTitle::after{
     content: "";
 
     width: 60px;
@@ -42,87 +44,17 @@
     border-radius: 5px;
 }
 
-.ogltL1, .ogltL2, .ogltL3, .ogltL4{
-    width: 100%;
-    height: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
 
-    animation: fade 800ms forwards;
-}
-
-@keyframes fade {
-    from{
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
-}
-
-.ogltBtnFlx{
+.treeBtnCtn{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
 }
 
-.ogltCtrl{
+.treeBtnUp, .treeBtnDown{
     aspect-ratio: 1/1;
-    width: 600px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    background-color: #fff;
-    box-shadow: 5px 5px 30px 0 #eee;
-    border-radius: 20px;
-}
-
-.ogltCtrl > div{
-    display: flex;
-    gap: 10px;
-}
-
-.ogltCtrl > div > button{
-    padding: 20px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #fff;
-    border: none;
-
-    font-size: 2em;
-}
-
-.ogltCtrl > div > button:nth-child(1){
-    border-radius: 20px 0 0 20px;
-    color: #37b8c1;
-}
-
-.ogltCtrl > div > button:nth-child(2){
-    font-weight: bold;
-}
-
-.ogltCtrl > div > button:nth-child(3){
-    border-radius: 0 20px 20px 0;
-    color: #37b8c1;
-}
-
-.ogltBtn, .ogltBtnL1, .ogltBtnL2, .ogltBtnL3, .ogltBtnL4{
-    aspect-ratio: 1/1;
-    width: 250px;
+    width: 17.5rem;
 
     padding: 20px;
 
@@ -136,20 +68,29 @@
     box-shadow: 5px 5px 30px 0 #eee;
     border: none;
     border-radius: 20px;
+
+    animation: fade 1s forwards;
 }
 
-.ogltBtn > i, .ogltBtnL1 > i, .ogltBtnL2 > i, .ogltBtnL3 > i, .ogltBtnL4 > i{
+@keyframes fade{
+    from{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.treeBtnUp > i, .treeBtnDown > i{
     font-size: 5em;
     color: #233366;
 }
 
-.ogltBtn > span, .ogltBtnL1 > span, .ogltBtnL2 > span, .ogltBtnL3 > span, .ogltBtnL4 > span{
+.treeBtnUp > span, .treeBtnDown > span{
     font-weight: bold;
     font-size: 2em;
-}
-
-.ogltL1.active, .ogltL2.active, .ogltL3.active{
-    display: none;
 }
 
 

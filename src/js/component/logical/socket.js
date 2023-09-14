@@ -4,7 +4,8 @@ export async function initSocket() {
     let buffer = await parser.configParser();
 
     // Création de la connexion websocket
-    socket = new WebSocket(
+    // Faire en sorte que la variable socket soit global
+    var socket = new WebSocket(
         // Adresse du serveur
         buffer.socket.address
     );

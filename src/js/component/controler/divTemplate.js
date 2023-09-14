@@ -1,25 +1,37 @@
-export function newButton(input1, input2, input3){
+export function newButton(in1, in2, in3){
     let icon = '';
 
-    switch (input1) {
-        case 1:
+    switch (in2){
+        case "Calendrier":
             icon = 'fa-calendar-days';
             break;
-        case 2:
+        case "Salles":
             icon = 'fa-door-open';
             break;
-        case 3:
+        case "Notes":
             icon = 'fa-list-check';
             break;
-        case 4:
-            icon = 'fa-graduation-cap';
-            break;
         default:
-            icon = '';
+            icon = 'fa-bug';
             break;
     }
 
-    return `
-        <button class="${input2}"><i class="fa-solid ${icon}"></i><span>${input3}</span></button>
-    `;
+    switch (in1){
+        case 0:
+            return `
+                <button class="treeBtnDown"><i class="fa-solid ${icon}"></i><span>${in3}</span></button>
+            `;
+            
+            break;
+        case 1:
+            return `
+                <button class="treeBtnUp"><i class="fa-solid fa-arrow-left"></i></button>
+            `;
+            
+            break;
+        default :
+            return console.error("{newButton, error} input button type not set");
+            
+            break;
+    }
 }
