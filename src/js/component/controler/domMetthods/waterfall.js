@@ -2,57 +2,65 @@ import * as btn from '../divTemplate.js';
 
 export function initDisplay(object){
     const parent = document.querySelector(".treeBtnCtn");
-    //const btnUp = document.querySelector(".treeBtnUp");
-    //const btnDown = document.querySelectorAll(".treeBtnDown");
-    
-    console.log("init Path : " + path);
-    console.log("init Path : " + JSON.stringify(path));
 
+    console.log("init Path : " + path);
+    //console.log("init Path : " + JSON.stringify(path));
 
     parent.innerHTML = "";
 
     if (path.length > 0){
         parent.innerHTML += btn.newButton(1);
 
-        document.querySelector(".treeBtnCtn").addEventListener("click", () => {
-            console.log("click");
-            
-            up(object);
-        });
-    }
+        const btnUp = document.querySelectorAll(".treeBtnUp");
 
-
-
-    /*for (let key in object){
-        parent.innerHTML += btn.newButton(0, object[key].name, key);
-
-        document.querySelectorAll(".treeBtnDown").forEach( buffer => {
+        btnUp.forEach( buffer => {
             buffer.addEventListener("click", () => {
-                console.log("click");
-                
-                console.log(object[Object.keys(object)[Array.from(document.querySelectorAll(".treeBtnDown")).indexOf(buffer)]]);
-                
-                down(object, object[Object.keys(object)[Array.from(document.querySelectorAll(".treeBtnDown")).indexOf(buffer)]]);
+                console.log(object);
+
+                up();
             });
         });
-    }*/
-}
+    }
 
-function up(in1){
-    if (path.length > 0) {
-        path.pop();
-        initDisplay(in1);
+    for (let key in object){
+        parent.innerHTML += btn.newButton(0, object[key].name);
+
+        const btnDown = document.querySelectorAll(".treeBtnDown");
+
+        btnDown.forEach( buffer => {
+            buffer.addEventListener("click", () => {
+                console.log(object[Array.from(btnDown).indexOf(buffer)]);
+
+                down(Array.from(btnDown).indexOf(buffer), object[Array.from(btnDown).indexOf(buffer)].content);
+            });
+        });
     }
 }
 
-function down(object, key) {
-    /*if (object[key] && typeof object[key] === 'object') {
-        path.push(key);
-        const newObj = path.reduce((acc, key) => acc[key], object);
-        initDisplay(newObj);
-    }*/
+function up(){
+    path.pop();
+    console.log("up Path : " + path);
 
-    path.push(key);
-    const newObj = path.reduce((acc, key) => acc[key], object);
-    initDisplay(newObj);
+    //const newObj = path.reduce((acc, key) => acc[key], objectCache);
+
+    if (path.length > 0){
+        let newObj = objectCache;
+
+        for (let key of path) {
+            newObj = newObj.content[key];
+        }
+
+        console.log(newObj);
+
+        initDisplay(newObj);
+    } else {
+        initDisplay(objectCache);
+    }
+}
+
+function down(in1, in2) {
+    path.push(in1);
+    console.log("down Path : " + path);
+    
+    initDisplay(in2);
 }

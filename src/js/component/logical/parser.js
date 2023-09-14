@@ -5,8 +5,9 @@ export function requestParser(object) {
     switch (object.type){
         case "calendar":
             console.log(object);
+            objectCache = object.content;
             waterfall.initDisplay(object.content);
-            
+
             break;
         case "directory":
             console.log(object);

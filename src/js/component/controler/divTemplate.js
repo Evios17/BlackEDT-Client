@@ -1,4 +1,4 @@
-export function newButton(in1, in2, in3){
+export function newButton(in1, in2){
     let icon = '';
 
     switch (in2){
@@ -12,14 +12,15 @@ export function newButton(in1, in2, in3){
             icon = 'fa-list-check';
             break;
         default:
-            icon = 'fa-bug';
+            //icon = 'fa-bug';
+            icon = 'fa-graduation-cap';
             break;
     }
 
     switch (in1){
         case 0:
             return `
-                <button class="treeBtnDown"><i class="fa-solid ${icon}"></i><span>${in3}</span></button>
+                <button class="treeBtnDown"><i class="fa-solid ${icon}"></i><span>${in2}</span></button>
             `;
             
             break;
