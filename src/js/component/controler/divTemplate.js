@@ -1,6 +1,7 @@
 export function newButton(in1, in2){
-    let icon = '';
+    let icon;
 
+    // Définition de l'icône en fonction du nom du bouton
     switch (in2){
         case "Calendrier":
             icon = 'fa-calendar-days';
@@ -17,22 +18,20 @@ export function newButton(in1, in2){
             break;
     }
 
+    // Définition du bouton en fonction du type de bouton
     switch (in1){
+        // Si le bouton est un bouton de dossier
         case 0:
             return `
                 <button class="treeBtnDown"><i class="fa-solid ${icon}"></i><span>${in2}</span></button>
             `;
-            
-            break;
+        // Si le bouton est un bouton de retour
         case 1:
             return `
                 <button class="treeBtnUp"><i class="fa-solid fa-arrow-left"></i></button>
             `;
-            
-            break;
+        // Si le bouton n'est pas valide
         default :
             return console.error("{newButton, error} input button type not set");
-            
-            break;
     }
 }

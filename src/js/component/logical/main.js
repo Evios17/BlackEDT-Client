@@ -1,4 +1,4 @@
-import * as socket from "./socket.js";
+import {initSocket} from "./socket.js";
 
 
 // Initation de la fennêtre secondaire
@@ -7,8 +7,7 @@ import * as socket from "./socket.js";
 
 // Initiation du socket
 
-
-socket.initSocket();
+initSocket();
 
 // Requête de récupération des données
 

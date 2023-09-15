@@ -31,6 +31,3 @@ export async function initSocket() {
         console.warn("{initSocket, event} Socket connection closed : " + e);
     };
 }
-
-
-//module.exports = {initSocket,}
