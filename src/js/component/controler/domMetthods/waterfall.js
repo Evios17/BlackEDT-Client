@@ -1,23 +1,29 @@
-//import * as btn from '../divTemplate.js';
 import {newButton} from '../divTemplate.js';
 
-export function initDisplay(object){
+const debug = false;
+let objectCache = null;
+let path = [];
+
+export function initDisplay(object, socket){
     // Sauvegarde de l'objet
     objectCache = object;
 
     // Affichage de l'arborescence
-    refreshDisplay(object);
+    refreshDisplay(object, socket);
 }
 
-function refreshDisplay(object){
+function refreshDisplay(object, socket){
+    var st = socket;
     const parent = document.querySelector(".treeBtnCtn");
 
-    console.log("{refreshDisplay, log} init Path : ");
-    console.log(path);
-    console.log("{refreshDisplay, log} init Object : ");
-    console.log(object);
-    console.log("{refreshDisplay, log} init ObjectCache : ");
-    console.log(objectCache);
+    if(debug){
+        console.log("{refreshDisplay, log} init Path : ");
+        console.log(path);
+        console.log("{refreshDisplay, log} init Object : ");
+        console.log(object);
+        console.log("{refreshDisplay, log} init ObjectCache : ");
+        console.log(objectCache);
+    }
 
     // Nettoyage de l'affichage
     parent.innerHTML = "";
@@ -34,12 +40,14 @@ function refreshDisplay(object){
             // Suppression du dernier index de l'array path
             path.pop();
 
-            console.log("{refreshDisplay, log} up Path : ");
-            console.log(path);
-            console.log("{refreshDisplay, log} up Object : ");
-            console.log(object);
-            console.log("{refreshDisplay, log} up ObjectCache : ");
-            console.log(objectCache);
+            if(debug) {
+                console.log("{refreshDisplay, log} up Path : ");
+                console.log(path);
+                console.log("{refreshDisplay, log} up Object : ");
+                console.log(object);
+                console.log("{refreshDisplay, log} up ObjectCache : ");
+                console.log(objectCache);
+            }
 
             let objectBuffer = objectCache;
 
@@ -63,18 +71,38 @@ function refreshDisplay(object){
     // Ajout des évènements aux boutons de l'arborescence
     btnDown.forEach( buffer => {
         buffer.addEventListener("click", () => {
-            // Ajout de l'index du bouton à l'array path
-            path.push(Array.from(btnDown).indexOf(buffer));
+            switch(object[Array.from(btnDown).indexOf(buffer)].type){
+                case "folder":
+                    // Ajout de l'index du bouton à l'array path
+                    path.push(Array.from(btnDown).indexOf(buffer));
 
-            console.log("{refreshDisplay, log} down Path : ");
-            console.log(path);
-            console.log("{refreshDisplay, log} down Object : ");
-            console.log(object);
-            console.log("{refreshDisplay, log} down ObjectCache : ");
-            console.log(objectCache);
+                    if(debug) {
+                        console.log("{refreshDisplay, log} down Path : ");
+                        console.log(path);
+                        console.log("{refreshDisplay, log} down Object : ");
+                        console.log(object);
+                        console.log("{refreshDisplay, log} down ObjectCache : ");
+                        console.log(objectCache);
+                    }
 
-            // Affichage de l'objet
-            refreshDisplay(object[Array.from(btnDown).indexOf(buffer)].content);
+                    // Affichage de l'objet
+                    refreshDisplay(object[Array.from(btnDown).indexOf(buffer)].content);
+                    break;
+                case "calendar":
+                    console.log(object[Array.from(btnDown).indexOf(buffer)].resource);
+                    let request = {
+                        type: "calendar",
+                        content: object[Array.from(btnDown).indexOf(buffer)].resource
+                    };
+                    st.send(JSON.stringify(request));
+                    break;
+                case "pdf":
+                    break;
+                default:
+                    console.error("{refreshDisplay, error} : Unknown object type");
+                    break;
+            }
+            
         });
     });
 }

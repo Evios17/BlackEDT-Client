@@ -1,4 +1,4 @@
-const electron = require('electron')
+const electron = require('electron');
 
 const createWindow = (path) => {
     // const win = new BrowserWindow({
@@ -11,11 +11,11 @@ const createWindow = (path) => {
         y: 0
     })
 
-    win.loadFile(path)
+    win.loadFile(path);
 }
 
 electron.app.whenReady().then(() => {
-    createWindow('src/js/html/debug.html');
+    createWindow('src/html/screen1.html');
 
     console.log(electron.screen.getAllDisplays());
 })

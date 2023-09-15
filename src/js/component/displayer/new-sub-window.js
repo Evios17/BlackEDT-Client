@@ -1,1 +1,3 @@
-var screen = window.open("calendar.html");
+export function newSubWindow(){
+    window.open("screen2.html");
+}

@@ -1,20 +1,26 @@
 import {initDisplay} from '../controler/domMetthods/waterfall.js';
 
-export function requestParser(object) {
+const debug = false;
+
+export function requestParser(object, socket) {
     switch (object.type){
         // Si la requête est de type "calendar"
         case "calendar":
-            console.log("{requestParser, log} Object de type calendar : ");
-            console.log(object);
+            if(debug){
+                console.log("{requestParser, log} Object de type calendar : ");
+                console.log(object);
+            }
 
             // Affichage du calendrier
-            initDisplay(object.content);
+            initDisplay(object.content, socket);
 
             break;
         // Si la requête est de type "directory"
         case "directory":
-            console.log("{requestParser, log} Object de type directory : ");
-            console.log(object);
+            if(debug) {
+                console.log("{requestParser, log} Object de type directory : ");
+                console.log(object);
+            }
 
             // Affichage de l'arborescence
             initDisplay(object.content);
@@ -22,7 +28,7 @@ export function requestParser(object) {
             break;
         // Si la requête n'est pas valide
         default:
-            console.error("{requestParser, error} : Unknown request type");
+            if(debug) console.error("{requestParser, error} : Unknown request type");
             
             break;
     }
@@ -37,7 +43,7 @@ export async function configParser() {
         return await response.json();
     } catch (e) {
         // Affichage de l'erreur dans la console
-        console.error("{initSocket, error} : " + e);
+        if(debug) console.error("{initSocket, error} : " + e);
 
         return 1;
     }
