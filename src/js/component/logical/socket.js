@@ -8,7 +8,7 @@ export async function initSocket() {
 
     // Création de la connexion websocket
     // Faire en sorte que la variable socket soit global
-    let socket = new WebSocket(
+    window.socket = new WebSocket(
         // Adresse du serveur
         buffer.socket.address
     );
@@ -28,7 +28,7 @@ export async function initSocket() {
         }
         
         // Conversion des données JSON en objet
-        parser.requestParser(JSON.parse(e.data), socket);
+        parser.requestParser(JSON.parse(e.data));
     };
 
     // Lorsque la connexion est fermée

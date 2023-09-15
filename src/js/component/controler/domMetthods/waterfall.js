@@ -4,16 +4,15 @@ const debug = false;
 let objectCache = null;
 let path = [];
 
-export function initDisplay(object, socket){
+export function initDisplay(object){
     // Sauvegarde de l'objet
     objectCache = object;
 
     // Affichage de l'arborescence
-    refreshDisplay(object, socket);
+    refreshDisplay(object);
 }
 
-function refreshDisplay(object, socket){
-    var st = socket;
+function refreshDisplay(object){
     const parent = document.querySelector(".treeBtnCtn");
 
     if(debug){
@@ -94,7 +93,7 @@ function refreshDisplay(object, socket){
                         type: "calendar",
                         content: object[Array.from(btnDown).indexOf(buffer)].resource
                     };
-                    st.send(JSON.stringify(request));
+                    socket.send(JSON.stringify(request));
                     break;
                 case "pdf":
                     break;

@@ -2,7 +2,7 @@ import {initDisplay} from '../controler/domMetthods/waterfall.js';
 
 const debug = false;
 
-export function requestParser(object, socket) {
+export function requestParser(object) {
     switch (object.type){
         // Si la requête est de type "calendar"
         case "calendar":
@@ -12,7 +12,7 @@ export function requestParser(object, socket) {
             }
 
             // Affichage du calendrier
-            initDisplay(object.content, socket);
+            console.log(object.content);
 
             break;
         // Si la requête est de type "directory"
