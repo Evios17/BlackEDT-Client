@@ -11,7 +11,7 @@
 }
 
 .calendar-days{
-    padding: 0 0 0 100px;
+    padding: 0 20px 0 100px;
 
     display: flex;
     justify-content: space-between;
@@ -65,7 +65,7 @@
 .calendar-table{
     flex: 1;
 
-    padding: 0 0 0 20px;
+    padding: 0 20px 0 20px;
 
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@
     width: 100%;
     height: calc(100% - 20px);
 
-    padding: 15.75px 0 15.75px 100px;
+    padding: 11.5px 0 11.5px 100px;
 
     display: flex;
     gap: 10px;
@@ -108,15 +108,13 @@
 
 .calendar-table-data-cursor-pointer{
     width: calc(100% - 100px);
-    height: 2px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     position: absolute;
+    bottom: 0;
 
-    background-color: red;
+    background-color: rgba(0, 140, 255, 0.06);
+    border-radius: 0px 0px 10px 10px;
+    border-top: 2px solid #008cff;
 
     z-index: 1;
 }
@@ -129,7 +127,11 @@
 
     display: block;
 
-    background-color: red;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+
+    background-color: #008cff;
 
     border-radius: 50%;
 }
@@ -139,38 +141,78 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
 }
 
 .calendar-table-cell{
-    padding: 15px;
+    height: 7.6923076923076923076923076923077%;
+
+    padding: 5px;
+
+    display: flex;
     
     background-color: #dadada;
     border-radius: 10px;
+    box-shadow: inset 0 0 0 5px #ffffff82;
 
     overflow: hidden;
 }
 
 .calendar-table-cell.cm{
-    background-color: #dadada;
+    background-color: #b5c9e8;
 }
 
 .calendar-table-cell.td{
-    background-color: #aab4d8;
+    background-color: #c5b9e5;
 }
 
 .calendar-table-cell.tp{
-    background-color: #99ced2;
+    background-color: #a9d8dc;
+}
+
+.calendar-table-cell.brk{
+    background-color: #dadada;
 }
 
 .calendar-table-cell-content{
-    height: 100%;
+    padding: 15px;
+}
 
+.calendar-table-cell-tn-professor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.calendar-table-cell.exm .calendar-table-cell-tn-professor:after{
+    content: "Examen";
+
+    padding: 2px 5px;
+
+    background-color: #b90039;
+    border-radius: 6px;
+
+    font-weight: bold;
+    color: #fff;
+}
+
+.calendar-table-cell-tn-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+
+    color: #000000B3;
+}
+
+.calendar-table-cell-content{
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
 }
 
 .calendar-table-cell-tn{
@@ -190,6 +232,6 @@
     gap: 10px;
 }
 
-.calendar-table-cell-hp i{
-    opacity: 0.5;
+.calendar-table-cell-hp, .calendar-table-cell-hp i{
+    color: #000000B3;
 }
