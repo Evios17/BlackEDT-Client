@@ -12,29 +12,8 @@
 
 .calendar-days{
     display: flex;
+
     position: relative;
-}
-
-.calendar-day-title{
-    flex: 1;
-
-    max-width: 100%;
-    max-height: 300px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
-}
-
-.calendar-day-title-number{
-    background: linear-gradient(to bottom, #e5e5e5, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    font-weight: bold;
-    font-size: 30rem;
 }
 
 .calendar-day-ctn{
@@ -44,10 +23,9 @@
     padding: 0 20px 0 100px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
-
-    position: absolute;
 }
 
 .calendar-day{
@@ -178,9 +156,12 @@
 .calendar-table-cell{
     height: 7.6923076923076923076923076923077%;
 
-    padding: 5px;
+    padding: 15px;
 
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
     
     background-color: #dadada;
     border-radius: 10px;
@@ -209,61 +190,36 @@
     padding: 15px;
 }
 
-.calendar-table-cell-tn-professor{
+
+
+.calendar-table-cell-top{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
 }
 
-.calendar-table-cell.exm .calendar-table-cell-tn-professor:after{
-    content: "Examen";
-
-    padding: 2px 5px;
-
-    background-color: #b90039;
-    border-radius: 6px;
-
-    font-weight: bold;
-    color: #fff;
+.calendar-table-cell-bottom, .calendar-table-cell-item{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.calendar-table-cell-tn-title{
+.calendar-table-cell-title{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; /* number of lines to show */
     line-clamp: 2;
     -webkit-box-orient: vertical;
-    word-break: break-word;
 
-    color: #000000B3;
+    font-weight: bold;
+    opacity: 0.5;
 }
 
-.calendar-table-cell-content{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.calendar-table-cell-item-right.exam{
+    font-weight: bold;
 }
 
-.calendar-table-cell-tn{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.calendar-table-cell-hp{
-    display: flex;
-    justify-content: space-between;
-}
-
-.calendar-table-cell-hp > div{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.calendar-table-cell-hp, .calendar-table-cell-hp i{
-    color: #000000B3;
+.calendar-table-cell-bottom{
+    opacity: 0.5;
 }
