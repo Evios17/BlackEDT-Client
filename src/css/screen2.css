@@ -4,6 +4,8 @@
 @import "../css/calendar.css";
 @import "../css/pdf.css";
 
+@import "../css/loader.css";
+
 @import "../css/module/footer.css";
 
 .application{
@@ -24,6 +26,8 @@
 .ongletCtn{
     flex: 1;
     display: flex;
+
+    position: relative;
 }
 
 .ongletSec{

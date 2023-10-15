@@ -1,3 +1,3 @@
 export function newSubWindow(){
-    window.open("screen2.html");
+    return window.open("screen2.html", '', 'fullscreen=yes, scrollbars=auto');
 }

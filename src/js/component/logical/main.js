@@ -1,9 +1,9 @@
 import {initSocket} from "./socket.js";
-//import {newSubWindow} from "../displayer/new-sub-window.js";
+import {newSubWindow} from "../displayer/new-sub-window.js";
 
 // Initation de la fennêtre secondaire
 
-//newSubWindow();
+newSubWindow();
 
 // Initiation du socket
 
