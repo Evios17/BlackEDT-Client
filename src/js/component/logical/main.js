@@ -3,7 +3,7 @@ import {newSubWindow} from "../displayer/new-sub-window.js";
 
 // Initation de la fennêtre secondaire
 
-newSubWindow();
+const wdw = newSubWindow();
 
 // Initiation du socket
 
