@@ -1,4 +1,5 @@
 import {newButton} from '../divTemplate.js';
+import {ongletSelector} from '../../displayer/domMetthods/onglet.js';
 
 const debug = false;
 let objectCache = null;
@@ -55,6 +56,8 @@ function refreshDisplay(object){
                 objectBuffer = objectBuffer[path[i]].content;
             }
 
+            ongletSelector(0);
+
             // Affichage de l'objet
             refreshDisplay(objectBuffer);
         });
@@ -65,11 +68,27 @@ function refreshDisplay(object){
         parent.insertAdjacentHTML("beforeend", newButton(0, object[key].name));
     }
 
+    if (object[0].type.includes('pdf')) {
+        for (let i = 0; i < parent.getElementsByTagName('button').length; i++) {
+            parent.getElementsByTagName('button')[i].classList.add('tbltree');
+        }
+
+        parent.classList.add('tbltree');
+    } else {
+        parent.classList.remove('tbltree');
+    }
+
     const btnDown = document.querySelectorAll(".treeBtnDown");
+
+    let request;
 
     // Ajout des évènements aux boutons de l'arborescence
     btnDown.forEach( buffer => {
         buffer.addEventListener("click", () => {
+            if (buffer.classList.contains('active')) return;
+            btnDown.forEach(buffer => buffer.classList.remove('active'));
+            buffer.classList.add('active');
+
             switch(object[Array.from(btnDown).indexOf(buffer)].type){
                 case "folder":
                     // Ajout de l'index du bouton à l'array path
@@ -91,15 +110,40 @@ function refreshDisplay(object){
                 case "calendar":
                     console.log(object[Array.from(btnDown).indexOf(buffer)].resource);
 
-                    let request = {
+                    request = {
                         type: "calendar",
-                        content: object[Array.from(btnDown).indexOf(buffer)].resource
+                        content: {
+                            resource: object[Array.from(btnDown).indexOf(buffer)].resource
+                            }
                     };
 
                     socket.send(JSON.stringify(request));
 
+                    buffer.classList.add("active");
+
+                    ongletSelector(1);
+
+                    wdw.document.querySelector(".loader-layout").classList.remove("active");
+                    wdw.document.querySelector(".loader-subject").textContent="Chargement du calendrier, veuillez patienter ..";
+
                     break;
                 case "pdf":
+                    console.log(object[Array.from(btnDown).indexOf(buffer)].resource);
+
+                    request = {
+                        type: "pdf",
+                        content: {
+                            resource: object[Array.from(btnDown).indexOf(buffer)].resource
+                        }
+                    };
+
+                    socket.send(JSON.stringify(request));
+
+                    ongletSelector(2);
+
+                    wdw.document.querySelector(".loader-layout").classList.remove("active");
+                    wdw.document.querySelector(".loader-subject").textContent="Chargement du fichier, veuillez patienter ..";
+
                     break;
                 default:
                     console.error("{refreshDisplay, error} : Unknown object type");

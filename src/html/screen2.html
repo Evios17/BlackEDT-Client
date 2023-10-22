@@ -36,19 +36,19 @@
 </head>
 <body>
     <main class="application">
-        <header class="hd">
-            <button class="ongletBtn" data-ogtl="0">Page 1</button>
-            <button class="ongletBtn active" data-ogtl="1">Page 2</button>
+        <header class="hd" style="display: none">
+            <button class="ongletBtn active" data-ogtl="0">Page 1</button>
+            <button class="ongletBtn" data-ogtl="1">Page 2</button>
             <button class="ongletBtn" data-ogtl="2">Page 3</button>
         </header>
         <div class="ongletCtn">
-            <div class="loader-layout">
+            <div class="loader-layout active">
                 <div class="loader-box">
                     <div class="loader"></div>
-                    <span>Chargement</span>
+                    <span class="loader-subject">Chargement</span>
                 </div>
             </div>
-            <section class="ongletSec" data-ogtl="0">
+            <section class="ongletSec active" data-ogtl="0">
                 <div class="app-flex-bgd">
                     <div class="app-flex-element"></div>
                     <div class="app-flex-element">
@@ -59,13 +59,8 @@
                     </div>
                 </div>
             </section>
-            <section class="ongletSec active" data-ogtl="1">
+            <section class="ongletSec" data-ogtl="1">
                 <div class="calendar">
-                    <header class="hdr">
-                        <div class="hdr-flex-element">
-                            <span>RT2 > TD3 > TP3</span>
-                        </div>
-                    </header>
                     <div class="calendar-dpl">
                         <div class="calendar-days">
                             <div class="calendar-day-ctn">
@@ -186,113 +181,115 @@
                                 <div class="calendar-table-data-cursor">
                                     <span class="calendar-table-data-cursor-pointer"></span>
                                 </div>
-                                <div class="calendar-table-column">
-                                    <div class="calendar-table-cell td">
-                                        <div class="calendar-table-cell-top">
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
+                                <div class="calendar-table-column-ctn">
+                                    <div class="calendar-table-column">
+                                        <div class="calendar-table-cell td">
+                                            <div class="calendar-table-cell-top">
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
+                                                </div>
                                             </div>
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
-                                            </div>
-                                        </div>
-                                        <div class="calendar-table-cell-bottom">
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-clock"></i>
-                                                <span>1h</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-flag"></i>
-                                                <span>BUT-RT-ELECTEL</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="calendar-table-cell cm">
-                                        <div class="calendar-table-cell-top">
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
-                                                <div class="calendar-table-cell-item-right exam">
-                                                    <span>Examen</span>
+                                            <div class="calendar-table-cell-bottom">
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-clock"></i>
+                                                    <span>1h</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span>BUT-RT-ELECTEL</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="calendar-table-cell-bottom">
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-clock"></i>
-                                                <span>1h</span>
+                                        <div class="calendar-table-cell cm">
+                                            <div class="calendar-table-cell-top">
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
+                                                    <div class="calendar-table-cell-item-right exam">
+                                                        <span>Examen</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-flag"></i>
-                                                <span>BUT-RT-ELECTEL</span>
+                                            <div class="calendar-table-cell-bottom">
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-clock"></i>
+                                                    <span>1h</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span>BUT-RT-ELECTEL</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar-table-cell td">
+                                            <div class="calendar-table-cell-top">
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
+                                                </div>
+                                            </div>
+                                            <div class="calendar-table-cell-bottom">
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-clock"></i>
+                                                    <span>1h</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span>BUT-RT-ELECTEL</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar-table-cell tp">
+                                            <div class="calendar-table-cell-top">
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
+                                                </div>
+                                            </div>
+                                            <div class="calendar-table-cell-bottom">
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-clock"></i>
+                                                    <span>1h</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span>BUT-RT-ELECTEL</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar-table-cell tp">
+                                            <div class="calendar-table-cell-top">
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
+                                                </div>
+                                            </div>
+                                            <div class="calendar-table-cell-bottom">
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-clock"></i>
+                                                    <span>1h</span>
+                                                </div>
+                                                <div class="calendar-table-cell-item">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span>BUT-RT-ELECTEL</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="calendar-table-cell td">
-                                        <div class="calendar-table-cell-top">
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
-                                            </div>
-                                        </div>
-                                        <div class="calendar-table-cell-bottom">
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-clock"></i>
-                                                <span>1h</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-flag"></i>
-                                                <span>BUT-RT-ELECTEL</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="calendar-table-cell tp">
-                                        <div class="calendar-table-cell-top">
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
-                                            </div>
-                                        </div>
-                                        <div class="calendar-table-cell-bottom">
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-clock"></i>
-                                                <span>1h</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-flag"></i>
-                                                <span>BUT-RT-ELECTEL</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="calendar-table-cell tp">
-                                        <div class="calendar-table-cell-top">
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-title">R3.15 GESTION DE PROJET 2 : UTILISER LES MÉTHODES DE GESTION DE PROJET</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <span class="calendar-table-cell-professor">Bruno GUEGAN</span>
-                                            </div>
-                                        </div>
-                                        <div class="calendar-table-cell-bottom">
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-clock"></i>
-                                                <span>1h</span>
-                                            </div>
-                                            <div class="calendar-table-cell-item">
-                                                <i class="fa-regular fa-flag"></i>
-                                                <span>BUT-RT-ELECTEL</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="calendar-table-column"></div>
+                                    <div class="calendar-table-column"></div>
                                 </div>
-                                <div class="calendar-table-column"></div>
-                                <div class="calendar-table-column"></div>
                             </div>
                         </div>
                     </div>
@@ -300,14 +297,7 @@
             </section>
             <section class="ongletSec" data-ogtl="2">
                 <div class="pdfView">
-                    <header class="hdr">
-                        <div class="hdr-flex-element">
-                            <span>Note R303</span>
-                        </div>
-                    </header>
-                    <div class="pdfView-display">
-                        <embed src="../media/pdf/Document sans titre.docx.pdf" type="application/pdf"/>
-                    </div>
+                    <embed class="pdfViewDpl" src="../media/pdf/Document sans titre.docx.pdf" type="application/pdf"/>
                 </div>                
             </section>
         </div>
@@ -318,8 +308,5 @@
             </div>
         </footer>
     </main>
-
-    <script src="../js/component/displayer/domMetthods/onglet.js"></script>
-    <script src="../js/component/displayer/domMetthods/calendar.js"></script>
 </body>
 </html>

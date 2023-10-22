@@ -1,3 +1,20 @@
+export function newDay(in1, in2){
+    return `
+        <div class="calendar-day">
+            <span class="calendar-day-number">${in1}</span>
+            <span class="calendar-day-word">${in2}</span>
+        </div>
+    `;
+}
+
+export function newDay(in1, in2){
+    return `
+        <div class="calendar-table-column">
+            
+        </div>
+    `;
+}
+
 export function newItem(in1, in2){
     let icon;
 

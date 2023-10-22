@@ -118,9 +118,15 @@
     padding: 11.5px 0 11.5px 100px;
 
     display: flex;
-    gap: 10px;
 
     position: absolute;
+}
+
+.calendar-table-column-ctn{
+    flex: 1;
+
+    display: flex;
+    gap: 10px;
 }
 
 .calendar-table-data-cursor-pointer{

@@ -4,9 +4,8 @@
 @import "../css/calendar.css";
 @import "../css/pdf.css";
 
-@import "../css/loader.css";
+@import "module/loader.css";
 
-@import "../css/module/header.css";
 @import "../css/module/footer.css";
 
 .application{

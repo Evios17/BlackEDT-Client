@@ -1,9 +1,8 @@
 import {initSocket} from "./socket.js";
 import {newSubWindow} from "../displayer/new-sub-window.js";
 
-// Initation de la fennêtre secondaire
-
-const wdw = newSubWindow();
+// Initiation de la fenêtre secondaire
+window.wdw = newSubWindow();
 
 // Initiation du socket
 
@@ -26,6 +25,9 @@ const wdw = newSubWindow();
 }
 
 initMainSocket();*/
+
+document.querySelector(".loader-layout").classList.remove("active");
+document.querySelector(".loader-subject").textContent="Initialisation de l'appairage, veuillez patienter..";
 
 initSocket();
 

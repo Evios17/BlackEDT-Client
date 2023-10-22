@@ -1,4 +1,6 @@
 import {initDisplay} from '../controler/domMetthods/waterfall.js';
+import {initCalendar} from '../displayer/domMetthods/calendar.js';
+import {initPdf} from '../displayer/domMetthods/pdf.js';
 
 const debug = false;
 
@@ -39,6 +41,8 @@ export function requestParser(object) {
             // Affichage de l'arborescence
             initDisplay(buffer.content);
 
+            document.querySelector(".loader-layout").classList.add("active");
+
             break;
         case "calendar":
             if(debug){
@@ -46,10 +50,20 @@ export function requestParser(object) {
                 console.log(buffer);
             }
 
+            // Initialisation du calendrier
+            initCalendar(buffer.content.events);
+
+            wdw.document.querySelector(".loader-layout").classList.add("active");
+
             // Affichage du calendrier
             console.log(buffer.content);
             break;
         case "pdf":
+            // Initialisation du pdf
+            initPdf(buffer.content.data);
+
+            wdw.document.querySelector(".loader-layout").classList.add("active");
+
             console.log("pdf");
             console.log(JSON.stringify(buffer));
             break;

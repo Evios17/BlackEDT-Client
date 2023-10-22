@@ -27,63 +27,12 @@ oglt(".btn", ".ctn");
 oglt(".ongletBtn", ".ongletSec");
 
 
-
-
-
-function onglet(ogltBtns, ogltBtn, oglt) {
-    // On initialise l'index à 0
-    let idx = 0;
-
-    // On actualise l'index par l'identifiant (data) du bouton
-    idx = ogltBtn.getAttribute("data-oglt");
-    
-    // On log la valeur de l'index
-    //console.log(idx);
-    
-    if(ogltBtn.classList.contains('active')){
-        return;
-    } else {
-        ogltBtn.classList.add('active');
-    }
-
-    for(let i = 0; i < ogltBtns.length; i++) {
-        if(ogltBtns[i].getAttribute("data-oglt") != idx){
-            ogltBtns[i].classList.remove('active');
-        }
-    }
-
-    for(let j = 0; j < oglt.length; j++){
-        if(oglt[j].getAttribute("data-oglt") == idx){
-            oglt[j].classList.remove('active');
+export function ongletSelector (in1) {
+    wdw.document.querySelectorAll(".ongletSec").forEach(ctn => {
+        if (ctn.dataset.ogtl === in1.toString()) {
+            ctn.classList.add('active');
         } else {
-            oglt[j].classList.add('active');
+            ctn.classList.remove('active');
         }
-    }
+    });
 }
-
-// On boucle sur l'enssemble des boutons
-document.querySelectorAll(".ogltBtnL1").forEach(ogltBtn => {
-    // On attend un click sur le bouton
-    ogltBtn.addEventListener('click', () => {
-        // On appel notre fonction
-        onglet(document.querySelectorAll(".ogltBtnL1"), ogltBtn, document.querySelectorAll(".ogltL1"));
-    });
-});
-
-// On boucle sur l'enssemble des boutons
-document.querySelectorAll(".ogltBtnL2").forEach(ogltBtn => {
-    // On attend un click sur le bouton
-    ogltBtn.addEventListener('click', () => {
-        // On appel notre fonction
-        onglet(document.querySelectorAll(".ogltBtnL2"), ogltBtn, document.querySelectorAll(".ogltL2"));
-    });
-});
-
-// On boucle sur l'enssemble des boutons
-document.querySelectorAll(".ogltBtnL3").forEach(ogltBtn => {
-    // On attend un click sur le bouton
-    ogltBtn.addEventListener('click', () => {
-        // On appel notre fonction
-        onglet(document.querySelectorAll(".ogltBtnL3"), ogltBtn, document.querySelectorAll(".ogltL3"));
-    });
-});

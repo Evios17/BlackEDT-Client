@@ -1,6 +1,6 @@
 @import "../css/root.css";
 
-@import "../css/loader.css";
+@import "module/loader.css";
 
 @import "../css/module/footer.css";
 
@@ -118,7 +118,7 @@ button:disabled{
 
 
 
-.tblBtnCtn{
+.treeBtnCtn.tbltree{
     height: 100%;
 
     display: block;
@@ -130,19 +130,19 @@ button:disabled{
     overflow: auto;
 }
 
-.tblBtnCtn > .tblBtnDown:nth-child(odd){
+.treeBtnDown.tbltree:nth-child(odd){
     background-color: #fff;
 }
 
-.tblBtnCtn > .tblBtnDown:nth-child(even){
+.treeBtnDown.tbltree:nth-child(even){
     background-color: #eee;
 }
 
-.tblBtnCtn > .tblBtnDown.active{
+.treeBtnDown.tbltree.active{
     background-color: #c5b9e5;
 }
 
-.tblBtnUp, .tblBtnDown{
+.treeBtnUp.tbltree, .treeBtnDown.tbltree{
     aspect-ratio: 0;
     width: 100%;
 
@@ -162,7 +162,7 @@ button:disabled{
     animation: fade 1s forwards;
 }
 
-.tblBtnUp{
+.treeBtnUp.tbltree{
     position: sticky;
     top: 0px;
 
@@ -172,14 +172,14 @@ button:disabled{
     z-index: 100;
 }
 
-.tblBtnUp > i{
+.treeBtnUp.tbltree > i{
     color: #fff;
 }
 
-.tblBtnUp > i, .tblBtnDown > i{
+.treeBtnUp.tbltree > i, .treeBtnDown.tbltree > i{
     font-size: 1.5rem;
 }
 
-.tblBtnUp > span, .tblBtnDown > span{
+.treeBtnUp.tbltree > span, .treeBtnDown.tbltree > span{
     font-size: 1.5em;
 }
