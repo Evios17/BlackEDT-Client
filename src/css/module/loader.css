@@ -65,6 +65,10 @@
     color: #fff;
 }
 
+loader-btn.active{
+    display: none;
+}
+
 .loader {
     width: 45px;
     height: 45px;

@@ -31,7 +31,7 @@ function deplacerCurseur(){
 }
 
 export function initCalendar(in1){
-    const days = window.wdw.document.querySelectorAll(".calendar-days");
+    const days = window.wdw.document.querySelectorAll(".calendar-day");
     const tableColumn = window.wdw.document.querySelectorAll(".calendar-table-column");
 
     days.forEach((day) => {
@@ -39,8 +39,8 @@ export function initCalendar(in1){
     });
 
     // À MODIFIER, ICI ON MET LA DATE D'AUJOURD'HUI SUR UNE SEMAINE DANS LE FUTUR POUR LE DEBUG
-    // const today = new Date();
-    const today = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000);                         //  Aujourd'hui (modifié pour une semaine à l'avance)
+    //const today = new Date();
+    const today = new Date(new Date().getTime() + 11 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
     const tommorow = new Date(today.getTime() +  86400000);                                         //  Le landemain
     const theDayAfter = new Date(tommorow.getTime() + 86400000);                                    //  Le jour d'après
     const theDayAfterThatDay = new Date(theDayAfter.getTime() + 86400000);                          //  Le jour d'après encore après (Au cas où si on est Dimanche)
@@ -136,18 +136,26 @@ export function initCalendar(in1){
             // Si la date de début de l'évènement correspond au jour de la colonne
             if (new Date(event.start_time).getDate() === columnDate[i]) {
 
+                const duration = event.duration;
+                const startHour = new Date(event.start_time).getHours();
+                const startMin = new Date(event.start_time).getMinutes();
+                const top = ((startHour + (startMin / 60) - 7) / 13) * 100;
+                const ht = 7.6923076923076923076923076923077 * duration;
                 const tpRegex = /tp/i;
                 const tdRegex = /td/i;
+                const lastCheckRegex = /RT\d+/g;
 
-                let groupType = null;
+                let groupType = '';
 
                 if (tpRegex.test(event.groups[0])) {
                     groupType = 'tp';
                 } else if (tdRegex.test(event.groups[0])) {
                     groupType = 'td';
-                } else {
+                } else if (lastCheckRegex.test(event.groups)) {
                     groupType = 'cm';
                 }
+
+                if (event.subject === 'Vacances') groupType = 'brk';
 
                 let teachers = '';
 
@@ -164,10 +172,13 @@ export function initCalendar(in1){
                     }
                 // Si il n'y a qu'un seul prof
                 } else {
-                    teachers = event.teacher[0];
+                    teachers = typeof event.teacher[0] !== 'undefined' ? event.teacher[0] : '';
                 }
+
+
+
                 let item = `
-                    <div class="calendar-table-cell ${groupType}">
+                    <div class="calendar-table-cell ${groupType}" style="height: ${ht + "%"};top: ${top + "%"}">
                         <div class="calendar-table-cell-top">
                             <div class="calendar-table-cell-item">
                                 <span class="calendar-table-cell-title">${event.subject}</span>
@@ -183,7 +194,7 @@ export function initCalendar(in1){
                         <div class="calendar-table-cell-bottom">
                             <div class="calendar-table-cell-item">
                                 <i class="fa-regular fa-clock"></i>
-                                <span>${event.duration + 'h'}</span>
+                                <span>${duration + 'h'}</span>
                             </div>
                             <div class="calendar-table-cell-item">
                                 <i class="fa-regular fa-flag"></i>
@@ -193,7 +204,7 @@ export function initCalendar(in1){
                     </div>
                 `;
 
-                tableColumn[i].insertAdjacentElement('beforeend', item);
+                tableColumn[i].insertAdjacentHTML('beforeend', item);
 
             }
         }

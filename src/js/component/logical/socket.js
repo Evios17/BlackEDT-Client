@@ -41,6 +41,7 @@ export async function initSocket() {
     socket.onclose = (e) => {
         document.querySelector(".loader-layout").classList.remove("active");
         document.querySelector(".loader-layout").classList.add("ty2");
+
         wdw.document.querySelector(".loader-layout").classList.add("active");
         ongletSelector(0);
 
@@ -56,7 +57,11 @@ export async function initSocket() {
         } else {
             document.querySelector(".loader-subject").textContent="Échec de la reconnexion après 3 tentatives.";
             console.log("Échec de la reconnexion après 3 tentatives.");
-            // Faire quelque chose d'autre ou quitter l'instance ici
+            document.querySelector(".loader-btn").classList.add("active");
+            document.querySelector(".loader-btn").addEventListener('click', () =>{
+                initSocket();
+                document.querySelector(".loader-btn").classList.remove("active");
+            });
         }
     };
 }
