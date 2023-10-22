@@ -86,14 +86,18 @@ function refreshDisplay(object){
 
                     // Affichage de l'objet
                     refreshDisplay(object[Array.from(btnDown).indexOf(buffer)].content);
+
                     break;
                 case "calendar":
                     console.log(object[Array.from(btnDown).indexOf(buffer)].resource);
+
                     let request = {
                         type: "calendar",
                         content: object[Array.from(btnDown).indexOf(buffer)].resource
                     };
+
                     socket.send(JSON.stringify(request));
+
                     break;
                 case "pdf":
                     break;

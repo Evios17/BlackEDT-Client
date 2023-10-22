@@ -28,7 +28,7 @@ export function newButton(in1, in2){
         // Si le bouton est un bouton de retour
         case 1:
             return `
-                <button class="treeBtnUp"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="treeBtnUp"><i class="fa-solid fa-arrow-left"></i><span>Retour</span></button>
             `;
         // Si le bouton n'est pas valide
         default :

@@ -7,27 +7,39 @@
 }
 
 .app-flex-element{
-    flex: 1;
-
     padding: 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    overflow: hidden;
 }
 
-.title{
-    margin: 60px 0 30px 0;
-}
+.app-flex-element:nth-child(1){
+    flex: 1;
 
-.description{
-    font-size: 1.2rem;
-    color: #404040;
+    padding: unset;
+
+    background-color: black;
+    background: url("../media/image/img1.jpg") no-repeat center;
+    background-size: cover;
 }
 
 .app-flex-element:nth-child(2){
-    justify-content: flex-start;
+    padding: 80px 0;
+}
+
+.title{
+    font-size: 2rem;
+}
+
+.description{
+    margin: 30px 0 60px 0;
+
+    font-size: 1.2rem;
+    color: #404040;
 }
 
 .indicator{
@@ -38,6 +50,8 @@
 
     border: 2px solid #000;
     border-radius: 20px;
+
+    scale: 1.2;
 }
 
 .indicator > i{

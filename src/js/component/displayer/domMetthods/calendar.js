@@ -45,7 +45,7 @@ function deplacerCurseur(){
     const cursor = document.querySelector(".calendar-table-data-cursor-pointer");
 
     // Déplacer le curseur en fonction du pourcentage total
-    cursor.style.height = "calc(100% - " + pourcentageCurseur() + "%)";
+    cursor.style.height = pourcentageCurseur() + "%";
 
     // Afficher la position du curseur dans la console
     console.log(pourcentageCurseur() + "%");

@@ -4,6 +4,14 @@
 
 @import "../css/module/footer.css";
 
+
+button:disabled{
+    filter: grayscale(100%);
+}
+
+
+
+
 .application{
     width: 100vw;
     height: 100vh;
@@ -35,21 +43,6 @@
 .treeTitle{
     font-weight: bold;
     font-size: 2em;
-}
-
-.treeTitle::after{
-    content: "";
-
-    width: 60px;
-    height: 5px;
-
-    margin: 6px 0 10px 0;
-
-    display: block;
-
-    background-color: #37b8c1;
-    box-shadow: 3px 3px 10px 0 #37b8c1;
-    border-radius: 5px;
 }
 
 
@@ -84,6 +77,11 @@
     animation: fade 1s forwards;
 }
 
+.treeBtnUp{
+    background-color: #233366;
+    color: #fff;
+}
+
 @keyframes fade{
     from{
         opacity: 0;
@@ -97,6 +95,13 @@
 
 .treeBtnUp > i, .treeBtnDown > i{
     font-size: 5em;
+}
+
+.treeBtnUp > i{
+    color: #fff;
+}
+
+.treeBtnDown > i{
     color: #233366;
 }
 
@@ -162,6 +167,7 @@
     top: 0px;
 
     background-color: #233366;
+    color: #fff;
 
     z-index: 100;
 }

@@ -24,7 +24,7 @@
 }
 
 .loader-box{
-    padding: 30px 40px;
+    padding: 60px 80px;
 
     background-color: #fff;
 
@@ -61,7 +61,7 @@
 
     position: absolute;
 
-    background-color: #37b8c1;
+    background-color: #fff;
     border-radius: 50%;
 
     animation: loader 1s infinite alternate;

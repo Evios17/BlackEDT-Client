@@ -6,6 +6,7 @@
 
 @import "../css/loader.css";
 
+@import "../css/module/header.css";
 @import "../css/module/footer.css";
 
 .application{
@@ -25,14 +26,15 @@
 
 .ongletCtn{
     flex: 1;
+
     display: flex;
+    flex-direction: column;
 
     position: relative;
 }
 
 .ongletSec{
     flex: 1;
-
     display: none;
 }
 
