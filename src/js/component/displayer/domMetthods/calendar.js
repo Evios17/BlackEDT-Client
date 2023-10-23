@@ -40,7 +40,7 @@ export function initCalendar(in1){
 
     // À MODIFIER, ICI ON MET LA DATE D'AUJOURD'HUI SUR UNE SEMAINE DANS LE FUTUR POUR LE DEBUG
     //const today = new Date();
-    const today = new Date(new Date().getTime() + 11 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
+    const today = new Date(new Date().getTime() + 12 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
     const tommorow = new Date(today.getTime() +  86400000);                                         //  Le landemain
     const theDayAfter = new Date(tommorow.getTime() + 86400000);                                    //  Le jour d'après
     const theDayAfterThatDay = new Date(theDayAfter.getTime() + 86400000);                          //  Le jour d'après encore après (Au cas où si on est Dimanche)
@@ -117,14 +117,35 @@ export function initCalendar(in1){
         }
     }
 
-    // On stocke les dates des jours sous forme de colonne pour la boucle
+    var columnDate = [];
+
+    // On pose la date des jours en fonction du jour actuel
+    // Par exemple : Si on est Mardi, on décale la date d'aujourd'hui sur la deuxième colonne, on s'adapte donc au jour d'aujourd'hui
     // Si on est pas Dimanche, on commence à partir d'aujourd'hui, sinon à partir du landemain
     if (todayWord !== 0) {
-        var columnDate = [todayDate, tommorowDate, theDayAfterDate];
+
+        switch (todayWord) {
+            // Si on est Lundi/Jeudi, on commence à partir de la première colonne
+            case 1:
+            case 4:
+                columnDate = [todayDate, tommorowDate, theDayAfterDate];
+                break;
+            // Si on est Mardi/Vendredi, on commence à partir de la seconde colonne
+            case 2:
+            case 5:
+                columnDate = [0, todayDate, tommorowDate];
+                break;
+            // Si on est Mercredi/Samedi, on commence à partir de la troisième colonne
+            case 3:
+            case 6:
+                columnDate = [0, 0, todayDate];
+                break;
+        }
     } else {
-        var columnDate = [tommorowDate, theDayAfterDate, theDayAfterThatDayDate];
+        columnDate = [tommorowDate, theDayAfterDate, theDayAfterThatDayDate];
     }
 
+    // On clean les colonnes actuelles si elles contiennent des évênements
     tableColumn.forEach((column) => {
         column.innerHTML = "";
     })
@@ -133,7 +154,7 @@ export function initCalendar(in1){
     for (let i = 0; i < 3; i++) {
         // Boucle sur les évènements contenu dans l'objet, on sélectionne seulement ceux de la colonne
         for (const event of in1) {
-            // Si la date de début de l'évènement correspond au jour de la colonne
+            // Si la date de début de l'évènement correspond au jour de la colonne stockée dans columnDate
             if (new Date(event.start_time).getDate() === columnDate[i]) {
 
                 const duration = event.duration;

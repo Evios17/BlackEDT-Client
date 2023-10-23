@@ -52,15 +52,16 @@ export async function initSocket() {
         if (retries < 2) { // Faire 3 tentatives au total
             retries++;
             document.querySelector(".loader-subject").textContent="Tentative de reconnexion dans 10 secondes...";
+            if(retries > 0) document.querySelector(".loader-subject").textContent+=` (Tentative ${retries})`;
             console.log("Tentative de reconnexion dans 10 secondes...");
             setTimeout(initSocket, 10000); // Nouvelle tentative après 10 secondes
         } else {
             document.querySelector(".loader-subject").textContent="Échec de la reconnexion après 3 tentatives.";
             console.log("Échec de la reconnexion après 3 tentatives.");
-            document.querySelector(".loader-btn").classList.add("active");
+            document.querySelector(".loader-btn").classList.remove("active");
             document.querySelector(".loader-btn").addEventListener('click', () =>{
                 initSocket();
-                document.querySelector(".loader-btn").classList.remove("active");
+                document.querySelector(".loader-btn").classList.add("active");
             });
         }
     };
