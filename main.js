@@ -6,12 +6,13 @@ const createWindow = (path) => {
     //     height: 600
     // })
     const win = new electron.BrowserWindow({
-        fullscreen: true,
-        x: -2560,
+        fullscreen: false,
+        x: 0,
         y: 0
     })
 
     win.loadFile(path);
+    win.maximize();
 }
 
 electron.app.whenReady().then(() => {
