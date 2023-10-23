@@ -76,7 +76,7 @@ export function requestParser(object) {
 export async function configParser() {
     try {
         // Récupération des données du fichier config.json
-        let response =  await fetch("/src/js/data/config.json");
+        let response =  await fetch("../js/data/config.json");
 
         // Retourne les données du fichier config.json
         return await response.json();

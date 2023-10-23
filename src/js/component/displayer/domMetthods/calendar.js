@@ -40,7 +40,7 @@ export function initCalendar(in1){
 
     // À MODIFIER, ICI ON MET LA DATE D'AUJOURD'HUI SUR UNE SEMAINE DANS LE FUTUR POUR LE DEBUG
     //const today = new Date();
-    const today = new Date(new Date().getTime() + 12 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
+    const today = new Date(new Date().getTime() + 11 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
     const tommorow = new Date(today.getTime() +  86400000);                                         //  Le landemain
     const theDayAfter = new Date(tommorow.getTime() + 86400000);                                    //  Le jour d'après
     const theDayAfterThatDay = new Date(theDayAfter.getTime() + 86400000);                          //  Le jour d'après encore après (Au cas où si on est Dimanche)
@@ -50,6 +50,10 @@ export function initCalendar(in1){
     const tommorowDate = tommorow.getDate();
     const theDayAfterDate = theDayAfter.getDate();
     const theDayAfterThatDayDate = theDayAfterThatDay.getDate();
+
+    // Dates des jours -1 et -2 à partir d'aujourd'hui
+    const todayDateMinusOne = new Date(today.getTime() - 86400000).getDate();
+    const todayDateMinusTwo = new Date(today.getTime() - (86400000 * 2)).getDate();
 
     // On stocke les jours
     const todayWord = today.getDay();
@@ -84,12 +88,34 @@ export function initCalendar(in1){
     }
 
     // Ensuite, on pose les dates
-    // Si on est pas Dimanche, on affiche les dates à partir du jour actuel
+    // Si on est pas Dimanche, on place les dates à partir du jour actuel
     if (todayWord !== 0) {
-        topDayNumberDisplay[0].textContent = todayDate > 10 ? todayDate : '0' + todayDate;
-        topDayNumberDisplay[1].textContent = tommorowDate > 10 ? tommorowDate : '0' + tommorowDate;
-        topDayNumberDisplay[2].textContent = theDayAfterDate > 10 ? theDayAfterDate : '0' + theDayAfterDate
-    // Sinon, on affiche les dates à partir du jour d'après
+
+            switch (todayWord) {
+                // Si on est Lundi/Jeudi, on répartie de la manière suivante : aujourd'hui, demain, le jour d'après
+                case 1:
+                case 4:
+                    topDayNumberDisplay[0].textContent = todayDate > 10 ? todayDate : '0' + todayDate;
+                    topDayNumberDisplay[1].textContent = tommorowDate > 10 ? tommorowDate : '0' + tommorowDate;
+                    topDayNumberDisplay[2].textContent = theDayAfterDate > 10 ? theDayAfterDate : '0' + theDayAfterDate
+                    break;
+                // Si on est Mardi/Vendredi, on répartie de la manière suivante : hier, aujourd'hui, demain
+                case 2:
+                case 5:
+                    topDayNumberDisplay[0].textContent = todayDateMinusOne > 10 ? todayDateMinusOne : '0' + todayDateMinusOne;
+                    topDayNumberDisplay[1].textContent = todayDate > 10 ? todayDate : '0' + todayDate ;
+                    topDayNumberDisplay[2].textContent = tommorowDate > 10 ? tommorowDate: '0' + tommorowDate;
+                    break;
+                // Si on est Mercredi/Samedi, on répartie de la manière suivante : avant-hier, hier, aujourd'hui
+                case 3:
+                case 6:
+                    topDayNumberDisplay[0].textContent = todayDateMinusTwo > 10 ? todayDateMinusTwo : '0' + todayDateMinusTwo;
+                    topDayNumberDisplay[1].textContent = todayDateMinusOne > 10 ? todayDateMinusOne : '0' + todayDateMinusOne;
+                    topDayNumberDisplay[2].textContent = todayDate > 10 ? todayDate : '0' + todayDate;
+                    break;
+            }
+
+    // Sinon, on affiche les dates à partir du jour d'après aujourd'hui
     } else {
         topDayNumberDisplay[0].textContent = tommorowDate > 10 ? tommorowDate : '0' + tommorowDate;
         topDayNumberDisplay[1].textContent = theDayAfterDate > 10 ? theDayAfterDate : '0' + theDayAfterDate;
@@ -133,12 +159,12 @@ export function initCalendar(in1){
             // Si on est Mardi/Vendredi, on commence à partir de la seconde colonne
             case 2:
             case 5:
-                columnDate = [0, todayDate, tommorowDate];
+                columnDate = [todayDateMinusOne, todayDate, tommorowDate];
                 break;
             // Si on est Mercredi/Samedi, on commence à partir de la troisième colonne
             case 3:
             case 6:
-                columnDate = [0, 0, todayDate];
+                columnDate = [todayDateMinusTwo, todayDateMinusOne, todayDate];
                 break;
         }
     } else {
@@ -176,7 +202,7 @@ export function initCalendar(in1){
                     groupType = 'cm';
                 }
 
-                if (event.subject === 'Vacances') groupType = 'brk';
+                if (event.subject === 'Vacances' || event.subject === 'Sport/activités facultatives') groupType = 'brk';
 
                 let teachers = '';
 
