@@ -3,11 +3,15 @@ import {ongletSelector} from '../../displayer/domMetthods/onglet.js';
 
 const debug = false;
 let objectCache = null;
-let path = [];
+window.path = [];
 
 export function initDisplay(object){
     // Sauvegarde de l'objet
     objectCache = object;
+
+    // Initialisation des variables
+    path = [];
+    ongletSelector(0);
 
     // Affichage de l'arborescence
     refreshDisplay(object);
@@ -68,7 +72,9 @@ function refreshDisplay(object){
         parent.insertAdjacentHTML("beforeend", newButton(0, object[key].name));
     }
 
-    if (object[0].type.includes('pdf')) {
+
+
+    if (object[0].type.includes('calendar') || object[0].type.includes('pdf')) {
         for (let i = 0; i < parent.getElementsByTagName('button').length; i++) {
             parent.getElementsByTagName('button')[i].classList.add('tbltree');
         }

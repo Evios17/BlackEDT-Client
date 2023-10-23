@@ -27,7 +27,7 @@ oglt(".btn", ".ctn");
 oglt(".ongletBtn", ".ongletSec");
 
 
-export function ongletSelector (in1) {
+export function ongletSelector(in1) {
     wdw.document.querySelectorAll(".ongletSec").forEach(ctn => {
         if (ctn.dataset.ogtl === in1.toString()) {
             ctn.classList.add('active');

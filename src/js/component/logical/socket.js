@@ -52,7 +52,7 @@ export async function initSocket() {
         if (retries < 2) { // Faire 3 tentatives au total
             retries++;
             document.querySelector(".loader-subject").textContent="Tentative de reconnexion dans 10 secondes...";
-            if(retries > 0) document.querySelector(".loader-subject").textContent+=` (Tentative ${retries})`;
+            if(retries > 0) document.querySelector(".loader-subject").textContent+=` (Essai n°${retries})`;
             console.log("Tentative de reconnexion dans 10 secondes...");
             setTimeout(initSocket, 10000); // Nouvelle tentative après 10 secondes
         } else {
