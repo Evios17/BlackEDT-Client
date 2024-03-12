@@ -39,8 +39,8 @@ export function initCalendar(in1){
     });
 
     // À MODIFIER, ICI ON MET LA DATE D'AUJOURD'HUI SUR UNE SEMAINE DANS LE FUTUR POUR LE DEBUG
-    //const today = new Date();
-    const today = new Date(new Date().getTime() + 11 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
+    const today = new Date();
+    //const today = new Date(new Date().getTime() + 11 * 24 * 60 * 60 * 1000);                        //  Aujourd'hui (modifié pour une semaine à l'avance)
     const tommorow = new Date(today.getTime() +  86400000);                                         //  Le landemain
     const theDayAfter = new Date(tommorow.getTime() + 86400000);                                    //  Le jour d'après
     const theDayAfterThatDay = new Date(theDayAfter.getTime() + 86400000);                          //  Le jour d'après encore après (Au cas où si on est Dimanche)
