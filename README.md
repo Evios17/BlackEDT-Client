@@ -1,25 +1,40 @@
 # BlackEDT-Client
 
-BlackEDT-Client is the client-side application for BlackEDT, a calendar application for the IUT of St-Pierre.
+BlackEDT-Client est une application d'affichage interactif pour l'emploi du temps, la disponibilité des salles et les relevés de notes de l'IUT de St-Pierre.
 
-## Table of Contents
+## Table des matières
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
+- [Utilisation](#utilisation)
+- [Licence](#licence)
 
 ## Installation
 
-To install the requirements for BlackEDT-Server, follow these steps:
+Suivez ces étapes pour configurer l'application d'affichage interactif :
 
-1. Clone the repository to your local machine.
-2. Install the required dependencies using `npm install`.
-3. Start the server using `npm start`.
+1. Clonez le dépôt sur votre machine locale :
+```sh
+git clone <url_du_dépôt>
+cd Interactive-Display-App
+```
 
-## Usage
+2. Installez les dépendances nécessaires :
+```sh
+npm install
+```
 
-To use BlackEDT-Client, "mettre les instructions"
+3. Lancez l'application :
+```sh
+npm start
+```
 
-## License
+## Utilisation
 
-MIT
+Pour utiliser l'application d'affichage interactif :
+
+- Ouvrez l'URL de l'application dans votre navigateur web.
+- Suivez les instructions à l'écran pour consulter les emplois du temps, vérifier la disponibilité des salles et accéder aux relevés de notes.
+
+## Licence
+
+Ce projet est sous licence Creative Commons Corporation - voir le fichier [LICENSE](LICENSE) pour plus de détails.
