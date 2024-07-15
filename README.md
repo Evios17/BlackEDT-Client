@@ -37,4 +37,4 @@ Pour utiliser l'application d'affichage interactif :
 
 ## Licence
 
-Ce projet est sous licence Creative Commons Corporation - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+Ce projet est sous licence Creative Commons Corporation - voir le fichier [LICENSE](LICENSE.txt) pour plus de détails.
