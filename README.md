@@ -14,8 +14,8 @@ Suivez ces étapes pour configurer l'application d'affichage interactif :
 
 1. Clonez le dépôt sur votre machine locale :
 ```sh
-git clone <url_du_dépôt>
-cd Interactive-Display-App
+git clone https://github.com/Evios17/BlackEDT-Client.git
+cd BlackEDT-Client
 ```
 
 2. Installez les dépendances nécessaires :
